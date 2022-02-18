@@ -3,6 +3,7 @@
 import tkinter
 from tkinter import ttk
 from functools import partial
+import ctypes
 
 from pyparsing import empty
 
@@ -139,3 +140,14 @@ def sv_msgbox(parent, title, details, icon, *, buttons):
 
     dialog.wait_window()
     return result
+
+def dark_title_bar(window):
+    window.update()
+    DWMWA_USE_IMMERSIVE_DARK_MODE = 20
+    set_window_attribute = ctypes.windll.dwmapi.DwmSetWindowAttribute
+    get_parent = ctypes.windll.user32.GetParent
+    hwnd = get_parent(window.winfo_id())
+    rendering_policy = DWMWA_USE_IMMERSIVE_DARK_MODE
+    value = 2
+    value = ctypes.c_int(value)
+    set_window_attribute(hwnd, rendering_policy, ctypes.byref(value), ctypes.sizeof(value))
