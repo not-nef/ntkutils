@@ -22,6 +22,7 @@ Now you can use this by importing the module with `import ntkutils`
 - `ntkutils.placeappincenter(window)`: Place a tkinter window in the center of your screen. Specify the window with the `window` parameter.
 - `ntkutils.ttktheme(window, source_file, theme)`: A simpler way of loading ttk themes. Parameters: `window` for the tkinter window, `source_file` for the .tcl theme file and `theme` for the theme (dark or light)
 - `ntkutils.windowsetup(window, title, icon, resizeable, size)`: A simpler way of configuring your tkinter window. If you want to skip any parameters, just specify `None`.
+- `ntkutils.dark_title_bar(window)`: Make the titlebar of a window dark. Credit to [Olikonsti](https://github.com/Olikonsti)
 
 Useless features:
 
