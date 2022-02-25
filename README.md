@@ -8,14 +8,9 @@ Someone probably made something similar (and better) to this but idrc.
 
 ## Installation:
 
-To install this, simple place the `ntkutils` folder into the following Directory:
 ```
-%LOCALAPPDATA%\Programs\Python\Python310\Lib\site-packages
+py -m pip install ntkutils
 ```
-
-Alternatively you can rename `__init__.py` to `ntkutils.py` and put it in the directory of your python project. (I don't recommend doing this)
-
-Now you can use this by importing the module with `import ntkutils`
 
 ## Features:
 
