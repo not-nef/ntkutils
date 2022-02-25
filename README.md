@@ -21,7 +21,6 @@ py -m pip install ntkutils
 
 Useless features:
 
-- `ntkutils.sunvalley(window, theme)`: Imports [rdbendes Sun-Valley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme). I made this because i use this theme very often.
 - `ntkutils.sv_msgbox(parent, title, details, icon, *, buttons)` I didnt make these, i just added them in here because i didn't want to put the file in every project where i want to use these. They were made by [rdbende](https://github.com/rdbende).
 
 Now have fun with this! (Or dont lmao)
