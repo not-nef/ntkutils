@@ -1,2 +1,0 @@
-include src/__init__.py
-include src/ntkutils.py
