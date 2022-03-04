@@ -145,3 +145,35 @@ def dark_title_bar(window):
     value = 2
     value = ctypes.c_int(value)
     set_window_attribute(hwnd, rendering_policy, ctypes.byref(value), ctypes.sizeof(value))
+
+def blur_window_background(bg_color, window:tkinter.Tk, dark:bool=False):
+    """
+    Bg Color can be obtained by running `ttk.Style().lookup(".", "background")`
+    """
+    from sys import getwindowsversion
+
+    if getwindowsversion().build >= 22000:
+        from win32mica import MICAMODE, ApplyMica
+
+        window.wm_attributes("-transparent", bg_color)
+        window.update()
+        if dark:
+            ApplyMica(
+                HWND=ctypes.windll.user32.GetParent(window.winfo_id()), ColorMode=MICAMODE.DARK
+            )
+        else:
+            ApplyMica(
+                HWND=ctypes.windll.user32.GetParent(window.winfo_id()), ColorMode=MICAMODE.LIGHT
+            )
+    else:
+        from BlurWindow.blurWindow import GlobalBlur
+        window.wm_attributes("-transparent", bg_color)
+        if dark:
+            GlobalBlur(
+                ctypes.windll.user32.GetParent(window.winfo_id()),
+                Acrylic=True,
+                hexColor="#1c1c1c",
+                Dark=True,
+            )
+        else:
+            pass
