@@ -15,5 +15,7 @@ setup(
     package_dir={'': 'src'},
     url='https://github.com/not-nef/ntkutils',
     keywords='ntkutils',
-    install_requires=["win32mica", "BlurWindow"],
+    install_requires=[
+        "win32mica",
+    ]
 )
