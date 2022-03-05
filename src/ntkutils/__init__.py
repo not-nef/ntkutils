@@ -4,6 +4,9 @@ import tkinter
 from tkinter import ttk
 from functools import partial
 import ctypes
+from sys import getwindowsversion
+import re
+from win32mica import MICAMODE, ApplyMica
 
 win_error = "Your window specification does not appear to be a tkinter window."
 
@@ -146,11 +149,15 @@ def dark_title_bar(window):
     value = ctypes.c_int(value)
     set_window_attribute(hwnd, rendering_policy, ctypes.byref(value), ctypes.sizeof(value))
 
-def blur_window_background(bg_color, window:tkinter.Tk, dark:bool=False):
-    """
-    Bg Color can be obtained by running `ttk.Style().lookup(".", "background")`
-    """
-    from sys import getwindowsversion
+def blur_window_background(window:tkinter.Tk, bg_color=None, dark:bool=False):
+    ttkbgcolor = str(ttk.Style().lookup(".", "background"))
+    match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', ttkbgcolor)
+    if match:                      
+        bg_color = ttkbgcolor
+    else:
+        if bg_color == None:
+            bg_color="#fafafa"
+            window.configure(bg=bg_color)
 
     if getwindowsversion().build >= 22000:
         from win32mica import MICAMODE, ApplyMica
@@ -166,14 +173,17 @@ def blur_window_background(bg_color, window:tkinter.Tk, dark:bool=False):
                 HWND=ctypes.windll.user32.GetParent(window.winfo_id()), ColorMode=MICAMODE.LIGHT
             )
     else:
-        from BlurWindow.blurWindow import GlobalBlur
-        window.wm_attributes("-transparent", bg_color)
-        if dark:
-            GlobalBlur(
-                ctypes.windll.user32.GetParent(window.winfo_id()),
-                Acrylic=True,
-                hexColor="#1c1c1c",
-                Dark=True,
-            )
-        else:
-            pass
+        # Disabled because it didnt work.
+        #
+        #from BlurWindow.blurWindow import GlobalBlur
+        #window.wm_attributes("-transparent", bg_color)
+        #if dark:
+        #    GlobalBlur(
+        #        ctypes.windll.user32.GetParent(window.winfo_id()),
+        #        Acrylic=True,
+        #        hexColor="#1c1c1c",
+        #        Dark=True,
+        #    )
+        #else:
+        #    pass
+        print("Your operating system doesnt support mica blurring!")# NTKUtils by not-nef
