@@ -14,13 +14,10 @@ py -m pip install ntkutils
 
 ## Features:
 
-- `ntkutils.placeappincenter(window)`: Place a tkinter window in the center of your screen. Specify the window with the `window` parameter.
-- `ntkutils.ttktheme(window, source_file, theme)`: A simpler way of loading ttk themes. Parameters: `window` for the tkinter window, `source_file` for the .tcl theme file and `theme` for the theme (dark or light)
-- `ntkutils.windowsetup(window, title, icon, resizeable, size)`: A simpler way of configuring your tkinter window. If you want to skip any parameters, just specify `None`.
-- `ntkutils.dark_title_bar(window)`: Make the titlebar of a window dark. Credit to [Olikonsti](https://github.com/Olikonsti)
-
-Useless features:
-
-- `ntkutils.sv_msgbox(parent, title, details, icon, *, buttons)` I didnt make these, i just added them in here because i didn't want to put the file in every project where i want to use these. They were made by [rdbende](https://github.com/rdbende).
+- `ntkutils.placeappincenter`: Place a tkinter window in the center of your screen. Specify the window with the `window` parameter.
+- `ntkutils.ttktheme`: A simpler way of loading ttk themes. Parameters: `window` for the tkinter window, `source_file` for the .tcl theme file and `theme` for the theme (dark or light)
+- `ntkutils.windowsetup`: A simpler way of configuring your tkinter window. If you want to skip any parameters, just specify `None`.
+- `ntkutils.dark_title_bar`: Make the titlebar of a window dark. Credit to [Olikonsti](https://github.com/Olikonsti)
+- `ntkutils.blur_window_background`: Uses Mica to blur the background of a window (requires windows 11.22000 or newer)
 
 Now have fun with this! (Or dont lmao)
