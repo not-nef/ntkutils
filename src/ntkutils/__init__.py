@@ -36,14 +36,11 @@ def ttktheme(window, source_file, theme):
     except:
         print("Your window specification does not appear to be a tkinter window.")
 
-def windowsetup(window, title, icon, resizeable, size):
-    if not title == None:
-        try:
-            window.title(f"{title}")
-        except:
-            print(f"{win_error}")
-    else:
-        pass
+def windowsetup(window, title="Window", icon=None, resizeable=True, size="300x300"):
+    try:
+        window.title(f"{title}")
+    except:
+        print(f"{win_error}")
 
     if not icon == None:
         try:
@@ -62,13 +59,10 @@ def windowsetup(window, title, icon, resizeable, size):
     else:
         pass
 
-    if not size == "":
-        try:
-            window.geometry(f"{size}")
-        except:
-            print("Your size specification seems to be wrong. Do it like this: WIDTHxHEIGHT")
-    else:
-        pass
+    try:
+        window.geometry(f"{size}")
+    except:
+        print("Your size specification seems to be wrong. Do it like this: WIDTHxHEIGHT")
 
 def sv_msgbox(parent, title, details, icon, *, buttons):
     dialog = tkinter.Toplevel()
