@@ -12,12 +12,5 @@ Someone probably made something similar (and better) to this but idrc.
 py -m pip install ntkutils
 ```
 
-## Features:
-
-- `ntkutils.placeappincenter`: Place a tkinter window in the center of your screen. Specify the window with the `window` parameter.
-- `ntkutils.dark_title_bar`: Make the titlebar of a window dark. Credit to [Olikonsti](https://github.com/Olikonsti).
-- `ntkutils.blur_window_background`: Uses Mica to blur the background of a window (requires windows 11.22000 or newer).
-- `ntkutils.ttktheme`: A simpler way of loading ttk themes.
-- `ntkutils.windowsetup`: A simpler way of configuring your tkinter window.
-
-Now have fun with this! (Or dont lmao)
+### Features:
+A documentation of the features can be found [here](docs/feature_documentation.md)!
