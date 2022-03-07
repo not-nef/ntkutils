@@ -1,12 +1,15 @@
 # NTKUtils by not-nef
 
-import tkinter
-from tkinter import ttk
-from functools import partial
 import ctypes
-from sys import getwindowsversion
 import re
+import tkinter
+from functools import partial
+from sys import getwindowsversion
+from tkinter import ttk
+
 from win32mica import MICAMODE, ApplyMica
+
+from .cfgtools import *
 
 win_error = "Your window specification does not appear to be a tkinter window."
 
