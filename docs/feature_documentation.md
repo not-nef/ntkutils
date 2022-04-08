@@ -45,8 +45,10 @@ save():
     cfg[setting2] = entry.get()
     ntkutils.cfgtools.SaveCFG(cfg)
 
-entry = ttk.entry(root, command=lambda:save())
+entry = ttk.entry(root)
 entry.pack()
+
+btn = ttk.Button(root, command=lambda:save()).pack()
 
 root.mainloop()
 ```
