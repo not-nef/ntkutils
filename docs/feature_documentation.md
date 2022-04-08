@@ -1,12 +1,11 @@
 # Feature documentation:
-
-## Standard Features:
     
 - `ntkutils.placeappincenter`: Place a tkinter window in the center of your screen. Specify the window with the window parameter.
 - `ntkutils.dark_title_bar`: Make the titlebar of a window dark. Credit to [Olikonsti](https://github.com/olikonsti).
 - `ntkutils.blur_window_background`: Uses Mica to blur the background of a window (requires windows 11.22000 or newer).
 - `ntkutils.windowsetup`: A simpler way of configuring your tkinter window.
 - `ntkutils.ttktheme`: A simpler way of loading ttk themes.
+- `ntkutils.isint`: Check if the specified string is an integer. It also supports checking if the integer is above or below a certain value that can be specified with the `bottomlimit` and `upperlimit` parameter.
 
 ### `ntkutils.cfgtools`:
 
