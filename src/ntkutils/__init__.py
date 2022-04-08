@@ -183,4 +183,39 @@ def blur_window_background(window:tkinter.Tk, bg_color=None, dark:bool=False):
         #    )
         #else:
         #    pass
-        print("Your operating system doesnt support mica blurring!")# NTKUtils by not-nef
+        print("Your operating system doesnt support mica blurring!")
+
+def isint(string, bottomlimit=None, upperlimit=None):
+    if bottomlimit == None and upperlimit == None:
+        try:
+            int(string)
+            return True
+        except ValueError:
+            return False
+    elif not bottomlimit == None and upperlimit == None:
+        try:
+            int(string)
+            if int(string) < bottomlimit:
+                return False
+            else:
+                return True
+        except ValueError:
+            return False
+    elif bottomlimit == None and not upperlimit == None:
+        try:
+            int(string)
+            if int(string) > upperlimit:
+                return False
+            else:
+                return True
+        except ValueError:
+            return False
+    elif not bottomlimit == None and not upperlimit == None:
+        try:
+            int(string)
+            if int(string) < bottomlimit or int(string) > upperlimit:
+                return False
+            else:
+                return True
+        except ValueError:
+            return False
