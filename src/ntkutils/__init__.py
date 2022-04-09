@@ -13,7 +13,7 @@ from .cfgtools import *
 
 win_error = "Your window specification does not appear to be a tkinter window."
 
-def placeappincenter(window):
+def placeappincenter(window:tkinter.Tk):
     try:
         window.update()
         x_coordinate = int((window.winfo_screenwidth() / 2) - (window.winfo_width() / 2))
@@ -22,7 +22,7 @@ def placeappincenter(window):
     except:
         print(f"{win_error}")
 
-def ttktheme(window, source_file, theme):
+def ttktheme(window:tkinter.Tk, source_file, theme):
     try:
         try:
             window.tk.call("source", f"{source_file}")
@@ -36,7 +36,7 @@ def ttktheme(window, source_file, theme):
     except:
         print("Your window specification does not appear to be a tkinter window.")
 
-def windowsetup(window, title="Window", icon=None, resizeable=True, size="300x300"):
+def windowsetup(window:tkinter.Tk, title="Window", icon=None, resizeable=True, size="300x300"):
     try:
         window.title(f"{title}")
     except:
@@ -64,7 +64,7 @@ def windowsetup(window, title="Window", icon=None, resizeable=True, size="300x30
     except:
         print("Your size specification seems to be wrong. Do it like this: WIDTHxHEIGHT")
 
-def sv_msgbox(parent, title, details, icon, *, buttons):
+def sv_msgbox(parent, title, details, icon, darktb=None, *, buttons):
     dialog = tkinter.Toplevel()
 
     result = None
@@ -129,10 +129,13 @@ def sv_msgbox(parent, title, details, icon, *, buttons):
 
     placeappincenter(dialog)
 
-    dialog.transient(parent)
-    dialog.grab_set()
+    if darktb:
+        dark_title_bar(dialog)
 
-    dialog.wait_window()
+    #dialog.transient(parent)
+    #dialog.grab_set()
+
+    #dialog.wait_window()
     return result
 
 def dark_title_bar(window):
@@ -157,8 +160,6 @@ def blur_window_background(window:tkinter.Tk, bg_color=None, dark:bool=False):
             window.configure(bg=bg_color)
 
     if getwindowsversion().build >= 22000:
-        from win32mica import MICAMODE, ApplyMica
-
         window.wm_attributes("-transparent", bg_color)
         window.update()
         if dark:
@@ -219,3 +220,8 @@ def isint(string, bottomlimit=None, upperlimit=None):
                 return True
         except ValueError:
             return False
+
+def clearwin(win:tkinter.Tk):
+    slaves_list = win.slaves() + win.place_slaves() + win.grid_slaves()
+    for slave in slaves_list:
+        slave.destroy()          
