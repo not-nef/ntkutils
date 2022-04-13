@@ -4,7 +4,7 @@ import ctypes
 import re
 import tkinter
 from functools import partial
-from sys import getwindowsversion
+import platform
 from tkinter import ttk
 
 from win32mica import MICAMODE, ApplyMica
@@ -159,7 +159,7 @@ def blur_window_background(window:tkinter.Tk, bg_color=None, dark:bool=False):
             bg_color="#fafafa"
             window.configure(bg=bg_color)
 
-    if getwindowsversion().build >= 22000:
+    if int(platform.version().lstrip("10.0.")) >= 22000:
         window.wm_attributes("-transparent", bg_color)
         window.update()
         if dark:
