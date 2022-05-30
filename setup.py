@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='ntkutils',
-    version='2.2.2',
+    version='2.2.3',
     license='MIT',
     author="not-nef",
     description="Utilities for tkinter",
