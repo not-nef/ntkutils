@@ -7,7 +7,9 @@ from functools import partial
 import platform
 from tkinter import ttk
 
-from win32mica import MICAMODE, ApplyMica
+try:
+    from win32mica import MICAMODE, ApplyMica
+except: pass
 
 from .cfgtools import *
 
