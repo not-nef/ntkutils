@@ -160,6 +160,8 @@ def blur_window_background(window:tkinter.Tk, bg_color=None, dark:bool=False):
         if bg_color == None:
             bg_color="#fafafa"
             window.configure(bg=bg_color)
+        else:
+            window.configure(bg=bg_color)
 
     if int(platform.version().lstrip("10.0.")) >= 22000:
         window.wm_attributes("-transparent", bg_color)
