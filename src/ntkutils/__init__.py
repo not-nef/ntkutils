@@ -15,6 +15,9 @@ from .cfgtools import *
 
 win_error = "Your window specification does not appear to be a tkinter window."
 
+def get_image(file):
+    return PhotoImage(file=file)
+
 def placeappincenter(window:tkinter.Tk):
     try:
         window.update()
