@@ -70,6 +70,9 @@ def windowsetup(window:tkinter.Tk, title="Window", icon=None, resizeable=True, s
         print("Your size specification seems to be wrong. Do it like this: WIDTHxHEIGHT")
 
 def sv_msgbox(parent, title, details, icon, darktb=None, *, buttons):
+    """
+    This code has been taken from rdbende's repository and added here for convinence: https://github.com/rdbende/Sun-Valley-messageboxes. It is licensed under the MIT license copyright 2021
+    """
     dialog = tkinter.Toplevel()
 
     result = None
