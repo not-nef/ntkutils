@@ -144,6 +144,9 @@ def sv_msgbox(parent, title, details, icon, darktb=None, *, buttons):
     return result
 
 def dark_title_bar(window):
+    """
+    This code has been taken from Olikonsti's gist and added here for convinence: https://gist.github.com/Olikonsti/879edbf69b801d8519bf25e804cec0aa
+    """
     window.update()
     DWMWA_USE_IMMERSIVE_DARK_MODE = 20
     set_window_attribute = ctypes.windll.dwmapi.DwmSetWindowAttribute
